@@ -2,7 +2,8 @@
 
 A modern, responsive admin dashboard built with React, Redux, and Tailwind CSS. This dashboard provides a comprehensive interface for managing news articles, blogs, and author payouts.
 
-![Dashboard Overview](https://i.imgur.com/example1.png)
+![Dashboard Overview]![Screenshot (613)](https://github.com/user-attachments/assets/144c3561-82aa-428f-9905-523f5964ef9e)
+)
 *Main dashboard view showing key metrics and statistics*
 
 ## Features
@@ -13,7 +14,8 @@ A modern, responsive admin dashboard built with React, Redux, and Tailwind CSS. 
 - Top authors by payout visualization
 - News and blog article distribution
 
-![Analytics Dashboard](https://i.imgur.com/example2.png)
+![Analytics Dashboard]![Screenshot (614)](https://github.com/user-attachments/assets/b80e9355-c4b1-4120-9968-d3295b5fa5d3)
+)
 *Analytics dashboard with interactive charts*
 
 ### 📰 News & Blog Management
@@ -23,7 +25,8 @@ A modern, responsive admin dashboard built with React, Redux, and Tailwind CSS. 
 - Article categorization (News/Blog)
 - Image preview and management
 
-![News Management](https://i.imgur.com/example3.png)
+![News Management](![Screenshot (615)](https://github.com/user-attachments/assets/1777eb7f-8742-4a87-9f34-482600ea309f)
+)
 *News and blog management interface*
 
 ### 💰 Payout System
@@ -32,7 +35,8 @@ A modern, responsive admin dashboard built with React, Redux, and Tailwind CSS. 
 - Export functionality (PDF/CSV)
 - Detailed payout history
 
-![Payout System](https://i.imgur.com/example4.png)
+![Payout System](![Screenshot (618)](https://github.com/user-attachments/assets/46f563d6-a7ee-4fbb-8c56-80d1d31efcd0)
+)
 *Payout management system*
 
 ## Tech Stack
