@@ -54,7 +54,7 @@ const NewsBlog = () => {
     
     const matchesType = filterType === 'all' || article.type === filterType;
     
-    const articleDate = new Date(article.publishedAt || article.publishDate);
+    const articleDate = new Date(article.publishDate);
     const matchesDateRange = (!startDate || articleDate >= startDate) && 
                            (!endDate || articleDate <= endDate);
 
@@ -147,7 +147,7 @@ const NewsBlog = () => {
                 }`}>
                   {article.type === 'news' ? 'News' : 'Blog'}
                 </span>
-                <span className="text-sm text-gray-500">{article.publishedAt}</span>
+                <span className="text-sm text-gray-500">{article.publishDate}</span>
               </div>
               <h3 className="text-lg font-medium text-gray-900 mb-2 line-clamp-2">
                 {article.title}

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchNews } from '../utils/newsApi';
+import { fetchNews } from '../services/api';
 import { toast } from 'react-toastify';
 import Papa from 'papaparse';
 import jsPDF from 'jspdf';

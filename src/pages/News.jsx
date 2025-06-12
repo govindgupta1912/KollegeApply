@@ -51,7 +51,10 @@ const News = () => {
   };
 
   const handleFilter = () => {
+    // Apply filters and reset to first page
     setCurrentPage(1);
+    // Force a re-render by updating the articles state
+    setArticles([...articles]);
   };
 
   const handleClearFilters = () => {
@@ -79,7 +82,9 @@ const News = () => {
     // Date filter
     let matchesDate = true;
     if (startDate || endDate) {
-      const articleDate = new Date(article.publishedAt || article.publishDate);
+      const articleDate = new Date(article.publishDate);
+      articleDate.setHours(0, 0, 0, 0); // Normalize article date to start of day
+      
       if (startDate) {
         const start = new Date(startDate);
         start.setHours(0, 0, 0, 0);
@@ -240,29 +245,25 @@ const News = () => {
                 key={article.url}
                 className="rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-white"
               >
-                {console.log("article.urlToImage",article)}
-                <div className="relative">
-                  {article.imageUrl ? (
-                    <img
-                      src={article.imageUrl}
-                      alt={article.title}
-                      className="w-full h-40 sm:h-48 object-cover"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = 'https://via.placeholder.com/400x200?text=No+Image';
-                      }}
-                    />
-                  ) : (
-                    <div className="w-full h-40 sm:h-48 flex items-center justify-center bg-gray-200">
-                      <span className="text-gray-500 text-sm sm:text-base">No image available</span>
-                    </div>
-                  )}
-                  <div className="absolute top-0 right-0 bg-indigo-600 text-white px-2 py-1 m-2 rounded-full text-xs sm:text-sm">
-                    {article.source?.name}
-                  </div>
-                </div>
                 <div className="p-4 sm:p-6">
-                  <h2 className="text-lg sm:text-xl font-semibold mb-2 line-clamp-2 text-gray-900">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      article.type === 'news'
+                        ? 'bg-blue-100 text-blue-800'
+                        : 'bg-green-100 text-green-800'
+                    }`}>
+                      {article.type === 'news' ? 'News' : 'Blog'}
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      {new Date(article.publishDate).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })}
+                    </span>
+                  </div>
+                  
+                  <h2 className="text-lg sm:text-xl font-semibold mb-3 line-clamp-2 text-gray-900">
                     <a
                       href={article.url}
                       target="_blank"
@@ -272,10 +273,12 @@ const News = () => {
                       {article.title}
                     </a>
                   </h2>
+                  
                   <p className="mb-4 line-clamp-3 text-sm sm:text-base text-gray-600">
                     {article.description}
                   </p>
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0">
+                  
+                  <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                       <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-indigo-100 flex items-center justify-center">
                         <span className="text-xs sm:text-sm text-indigo-600 font-medium">
@@ -287,11 +290,7 @@ const News = () => {
                           {article.author || 'Unknown Author'}
                         </p>
                         <p className="text-xs text-gray-500">
-                          {new Date(article.publishDate).toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric'
-                          })}
+                          {article.source?.name}
                         </p>
                       </div>
                     </div>

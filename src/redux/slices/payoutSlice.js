@@ -29,7 +29,7 @@ const payoutSlice = createSlice({
 
       articles.forEach(article => {
         const author = article.author || 'Unknown Author';
-        const isBlog = Math.random() > 0.5; // For demo purposes, randomly assign blog vs article
+        const isBlog = article.type === 'blog'; // Use the article's type field
 
         if (!newAuthorPayouts[author]) {
           newAuthorPayouts[author] = {
