@@ -55,7 +55,8 @@ export const searchNews = async (query, page = 1) => {
     const response = await newsApi.get('/everything', {
       params: {
         q: query,
-        
+        from: '2025-06-10',
+        to: '2025-06-10',
         sortBy: 'popularity',
         language: 'en',
         pageSize: 20,
