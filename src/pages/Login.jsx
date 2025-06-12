@@ -131,8 +131,8 @@ const Login = () => {
             </div>
           </div> */}
 
-          <p>admin :- admin@gmail.com password :- admin123</p>
-          <p>user :- user@gmail.com password :- user123</p>
+          <p>admin :- admin@example.com password :- admin123</p>
+          <p>user :- user@example.com password :- user123</p>
         </div>
       </div>
     </div>
