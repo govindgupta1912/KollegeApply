@@ -1,124 +1,153 @@
 # Admin Dashboard
 
-A modern admin dashboard built with React.js, Tailwind CSS, and Redux Toolkit.
+A modern, responsive admin dashboard built with React, Redux, and Tailwind CSS. This dashboard provides a comprehensive interface for managing news articles, blogs, and author payouts.
+
+![Dashboard Overview](https://i.imgur.com/example1.png)
+*Main dashboard view showing key metrics and statistics*
 
 ## Features
 
-- User Authentication (Admin/User roles)
-- News and Blog Management
-- Advanced Filtering and Search
-- Payout Calculator (Admin only)
-- Export to CSV and PDF
-- Responsive Design
-- Dark Mode Support
+### 📊 Analytics Dashboard
+- Real-time statistics and metrics
+- Interactive charts and graphs
+- Top authors by payout visualization
+- News and blog article distribution
+
+![Analytics Dashboard](https://i.imgur.com/example2.png)
+*Analytics dashboard with interactive charts*
+
+### 📰 News & Blog Management
+- Comprehensive article listing
+- Advanced search and filtering
+- Date range selection
+- Article categorization (News/Blog)
+- Image preview and management
+
+![News Management](https://i.imgur.com/example3.png)
+*News and blog management interface*
+
+### 💰 Payout System
+- Author payout tracking
+- Customizable payout rates
+- Export functionality (PDF/CSV)
+- Detailed payout history
+
+![Payout System](https://i.imgur.com/example4.png)
+*Payout management system*
 
 ## Tech Stack
 
-- React.js
-- Vite
-- Tailwind CSS
-- Redux Toolkit
-- React Router
-- Axios
-- Recharts
-- React Datepicker
-- jsPDF
-- PapaParse
-- React Toastify
+- **Frontend Framework:** React 19
+- **State Management:** Redux Toolkit
+- **Styling:** Tailwind CSS
+- **Charts:** Recharts
+- **Date Handling:** React DatePicker
+- **PDF Generation:** jsPDF
+- **CSV Export:** PapaParse
+- **UI Components:** Radix UI
+- **Icons:** Heroicons & Lucide React
 
-## Prerequisites
+## Getting Started
 
-- Node.js (v14 or higher)
+### Prerequisites
+
+- Node.js (v18 or higher)
 - npm or yarn
 
-## Installation
+### Installation
 
 1. Clone the repository:
-```bash
-git clone <repository-url>
-cd admin-dashboard
-```
+   ```bash
+   git clone https://github.com/yourusername/admin-dashboard.git
+   cd admin-dashboard
+   ```
 
 2. Install dependencies:
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
 3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Building for Production
+
 ```bash
-npm run dev
+npm run build
 ```
 
-## Usage
+The build artifacts will be stored in the `dist/` directory.
 
-### Login Credentials
-
-- Admin User:
-  - Email: admin@example.com
-  - Password: admin123
-
-- Regular User:
-  - Email: user@example.com
-  - Password: user123
-
-### Features
-
-1. **Dashboard**
-   - Overview of articles and blogs
-   - Statistics and charts
-   - Recent articles list
-
-2. **News & Blogs**
-   - List of all articles
-   - Filter by author, date, and type
-   - Global search functionality
-
-3. **Payout Management (Admin Only)**
-   - Set payout rates for articles and blogs
-   - View author-wise payout calculations
-   - Export reports to CSV and PDF
-
-## Development
-
-### Project Structure
+## Project Structure
 
 ```
-src/
-  ├── components/     # Reusable components
-  ├── pages/         # Page components
-  ├── redux/         # Redux store and slices
-  ├── utils/         # Utility functions
-  ├── App.jsx        # Main App component
-  └── main.jsx       # Entry point
+admin-dashboard/
+├── src/
+│   ├── components/     # Reusable UI components
+│   ├── pages/         # Page components
+│   ├── redux/         # Redux store and slices
+│   ├── services/      # API and utility services
+│   ├── utils/         # Helper functions and constants
+│   └── App.jsx        # Main application component
+├── public/            # Static assets
+└── package.json       # Project dependencies
 ```
 
-### Available Scripts
+## Features in Detail
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
+### Dashboard
+- Real-time statistics display
+- Interactive charts for data visualization
+- Top authors list with payout information
+- News and blog article distribution charts
+
+### News & Blog Management
+- Advanced search functionality
+- Date range filtering
+- Article categorization
+- Image preview and management
+- Responsive grid layout
+
+### Payout System
+- Author payout tracking
+- Customizable payout rates
+- Export functionality
+- Detailed payout history
+- PDF and CSV export options
+
+## Deployment
+
+The application is configured for easy deployment on Vercel:
+
+1. Push your code to GitHub
+2. Import the repository in Vercel
+3. Deploy with default settings
+
+The application will be automatically built and deployed.
 
 ## Contributing
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
+## Acknowledgments
 
-![Screenshot (619)](https://github.com/user-attachments/assets/1d81cbc4-6ee8-4585-a561-fe67d1d68ae8)
-
-![Screenshot (613)](https://github.com/user-attachments/assets/ae64df60-2e16-42fb-9df1-ca9ce99a43c7)
-![Screenshot (614)](https://github.com/user-attachments/assets/4bdc7171-1111-45c1-a8d5-7edacd8373a8)
-![Screenshot (615)](https://github.com/user-attachments/assets/e39c3352-c292-4f90-a939-59e4146c5fab)
-![Screenshot (618)](https://github.com/user-attachments/assets/df7fe1e9-bb92-4c1a-abfa-c8f1a4ee65f2)
-![Screenshot (617)](https://github.com/user-attachments/assets/112e4f35-9e42-40d9-8a4e-bf6dd5a1307b)
-![Screenshot (616)](https://github.com/user-attachments/assets/c48d5889-5dac-4775-9155-3dec74ee8ef7)
+- [React](https://reactjs.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Recharts](https://recharts.org/)
+- [Radix UI](https://www.radix-ui.com/)
 
 
 

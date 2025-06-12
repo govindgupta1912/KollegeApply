@@ -89,7 +89,7 @@ const Login = () => {
             </button>
           </form>
 
-          <div className="mt-6">
+          {/* <div className="mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-300"></div>
@@ -129,7 +129,10 @@ const Login = () => {
                 <span className="ml-2">GitHub</span>
               </button>
             </div>
-          </div>
+          </div> */}
+
+          <p>admin :- admin@gmail.com password :- admin123</p>
+          <p>user :- user@gmail.com password :- user123</p>
         </div>
       </div>
     </div>
