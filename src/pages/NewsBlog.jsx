@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchNews } from '../utils/newsApi';
+import { fetchNews } from '../services/api';
 import { toast } from 'react-toastify';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
@@ -23,21 +23,8 @@ const NewsBlog = () => {
     try {
       setIsLoading(true);
       const response = await fetchNews(currentPage);
-      const fetchedArticles = response.articles.map(article => ({
-        ...article,
-        urlToImage: article.urlToImage || article.imageUrl,
-        publishedAt: new Date(article.publishedAt || article.publishDate).toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric'
-        }),
-        type: article.type || (Math.random() > 0.5 ? 'news' : 'blog'),
-        source: {
-          name: article.source?.name || article.source || 'Unknown Source'
-        }
-      }));
-      setArticles(fetchedArticles);
-      setTotalPages(Math.ceil(fetchedArticles.length / itemsPerPage));
+      setArticles(response.articles);
+      setTotalPages(Math.ceil(response.totalResults / itemsPerPage));
     } catch (error) {
       console.error('Error loading articles:', error);
       toast.error('Failed to load articles');

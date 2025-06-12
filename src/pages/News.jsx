@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { fetchNews, searchNews } from '../utils/newsApi';
+import { fetchNews, searchArticles } from '../services/api';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -24,12 +24,7 @@ const News = () => {
     try {
       setIsLoading(true);
       const response = await fetchNews(currentPage);
-      // Add type to articles based on source
-      const articlesWithType = response.articles.map(article => ({
-        ...article,
-        type: article.source?.name?.toLowerCase().includes('blog') ? 'blog' : 'news'
-      }));
-      setArticles(articlesWithType);
+      setArticles(response.articles);
       setTotalPages(Math.ceil(response.totalResults / itemsPerPage));
     } catch (error) {
       console.error('Error loading articles:', error);
@@ -43,12 +38,8 @@ const News = () => {
     e.preventDefault();
     try {
       setIsLoading(true);
-      const response = await searchNews(searchQuery);
-      const articlesWithType = response.articles.map(article => ({
-        ...article,
-        type: article.source?.name?.toLowerCase().includes('blog') ? 'blog' : 'news'
-      }));
-      setArticles(articlesWithType);
+      const response = await searchArticles(searchQuery);
+      setArticles(response.articles);
       setTotalPages(Math.ceil(response.totalResults / itemsPerPage));
       setCurrentPage(1);
     } catch (error) {

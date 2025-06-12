@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { fetchNews, getTopHeadlines } from '../utils/newsApi';
+import { fetchNews, fetchTopHeadlines } from '../services/api';
 import { toast } from 'react-toastify';
 import { calculatePayouts } from '../redux/slices/payoutSlice';
 
@@ -24,8 +24,8 @@ const Dashboard = () => {
         dispatch(calculatePayouts(articles));
 
         // Fetch top headlines
-        const headlines = await getTopHeadlines();
-        setTopHeadlines(headlines);
+        const headlinesResponse = await fetchTopHeadlines();
+        setTopHeadlines(headlinesResponse.articles);
       } catch (error) {
         console.error('Error loading dashboard data:', error);
         toast.error('Failed to load dashboard data');
